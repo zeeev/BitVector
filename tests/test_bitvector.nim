@@ -21,6 +21,16 @@ when isMainModule:
     assert(ba[0..7] == 133, "incorrect result: " & $ba[0..7])
     assert(ba[0..4] == 5, "incorrect result: " & $ba[0..4])
     assert(ba[1..4] == 2, "incorrect result: " & $ba[1..4])
+
+
+  var sizes = 1..10278
+  for s in sizes:
+      var bitvectorZ = newBitVector[uint](s) 
+      echo bitvectorZ.cap, " ", s
+      doAssert bitvectorZ.cap >= s
+      for i in 0..s-1:
+       bitvectorZ[i] = 0  
+
   
   var bitvectorA = newBitVector[H](nBits)
   bitvectorA[0] = 1
